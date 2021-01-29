@@ -11,9 +11,6 @@ import "../assets/styles/tailwind.css";
 import "../assets/styles/custom.css";
 
 
-import { AuthProvider } from 'hooks/useAuth';
-
-
 Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${url}`);
   document.body.classList.add("body-page-transition");
@@ -68,6 +65,8 @@ export default class MyApp extends App {
 
     const Layout = Component.layout || (({ children }) => <>{children}</>);
 
+    
+
     return (
       <React.Fragment>
         <Head>
@@ -78,9 +77,7 @@ export default class MyApp extends App {
           <title>CSS For Everyone, Upcoming course on Udemy...</title>
         </Head>
         <Layout>
-          <AuthProvider>
-            <Component {...pageProps} />
-          </AuthProvider>
+              <Component {...pageProps} />
         </Layout>
       </React.Fragment>
     );
