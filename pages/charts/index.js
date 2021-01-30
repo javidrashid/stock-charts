@@ -2,14 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { useRouter } from "next/router";
+import dynamic from 'next/dynamic'
+
 import Navbar from "components/Navbars/AuthNavbar.js";
 
 import Link from "next/link";
 import Footer from "components/Footers/Footer.js";
 import netlifyAuth from "../../netlifyAuth";
-
-
-import dynamic from 'next/dynamic'
+ import CompanyInfo from "components/Stocks/CompanyInfo"
+import StockTable from 'components/Stocks/StockTable';
 
 const Stock = dynamic(import('components/Stocks/Stock.js'), {
   ssr: false
@@ -85,32 +86,17 @@ const Index = () => {
                 <div className="text-center mt-12"></div>
 
                 <Stock></Stock>
+                <StockTable color="dark" />
+               
               </div>
             </div>
           </div>
 
-          <div className="w-full px-4 lg:order-3 lg:text-right lg:self-center flex justify-center">
-            <div className="py-6 px-3 mt-32 sm:mt-0">
-              <button
-                className="bg-gray-800 active:bg-gray-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                type="button"
-              >
-                Previous
-              </button>
-            </div>
-            <div className="py-6 px-3 mt-32 sm:mt-0">
-              <button
-                className="bg-gray-800 active:bg-gray-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                type="button"
-              >
-                <Link href="question6"> Next6 </Link>
-              </button>
-            </div>
-          </div>
+         
         </section>
       </main>
      
-      <Footer />
+    
     </>
   );
 };

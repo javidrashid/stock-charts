@@ -9,6 +9,7 @@
     "@fortawesome/fontawesome-free": "5.14.0",
     "@popperjs/core": "2.5.1",
     "@tailwindcss/custom-forms": "0.2.1",
+    "@tailwindcss/line-clamp": "^0.2.0",
     "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "1.0.1",
     "autoprefixer": "^10.0.4",
