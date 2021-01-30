@@ -7,7 +7,6 @@ import dynamic from 'next/dynamic'
 import Navbar from "components/Navbars/AuthNavbar.js";
 
 import Link from "next/link";
-import Footer from "components/Footers/Footer.js";
 import StockTable from 'components/Stocks/StockTable';
 
 const Stock = dynamic(import('components/Stocks/Stock.js'), {
