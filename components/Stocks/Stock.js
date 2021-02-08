@@ -17,8 +17,6 @@ class Stock extends React.Component {
 
   fetchStock() {
     const pointerToThis = this;
-    console.log(pointerToThis);
-    debugger;
     let StockSymbol = this.props.companyname === undefined ? 'AAPL' : this.props.companyname;
     let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}&outputsize=compact&apikey=process.env.NEXT_PUBLIC_APIKEY`;
     let stockChartXValuesFunction = [];
@@ -50,7 +48,7 @@ class Stock extends React.Component {
   render() {
     return (
       <div>
-        <h1>Stock Market Data for {this.props.companyname}</h1>
+        <h1>Stock Market Data for {this.props.companyname === undefined ? 'AAPL' : this.props.companyname}</h1>
         <Plot
           data={[
             {

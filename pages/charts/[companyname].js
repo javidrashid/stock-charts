@@ -17,7 +17,6 @@ const Stock = dynamic(import("components/Stocks/Stock.js"), {
 const Index = () => {
   const router = useRouter();
   const pid = router.query;
-  console.log("In URL", pid);
 
   return (
     <>

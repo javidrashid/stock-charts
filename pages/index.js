@@ -8,6 +8,7 @@ import Navbar from "components/Navbars/IndexNavbar";
 
 import Link from "next/link";
 import StockTable from 'components/Stocks/StockTable';
+import CompanyList from "../components/Stocks/CompanyList";
 
 const Stock = dynamic(import('components/Stocks/Stock.js'), {
   ssr: false
@@ -61,7 +62,6 @@ const Index = () => {
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
               <div className="px-6">
                 <div className="text-center mt-12"></div>
-
                 <Stock companyname={pid.companyname}></Stock>
                 <StockTable color="dark" />
                
