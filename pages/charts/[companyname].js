@@ -1,12 +1,9 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { Pie } from "react-chartjs-2";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 import Navbar from "components/Navbars/IndexNavbar.js";
 
-import Link from "next/link";
 import StockTable from "components/Stocks/StockTable";
 import CompanyList from "components/Stocks/CompanyList";
 
