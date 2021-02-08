@@ -4,10 +4,9 @@ import { Pie } from "react-chartjs-2";
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic'
 
-import Navbar from "components/Navbars/AuthNavbar.js";
+import Navbar from "components/Navbars/IndexNavbar.js";
 
 import Link from "next/link";
-import Footer from "components/Footers/Footer.js";
 import StockTable from 'components/Stocks/StockTable';
 
 const Stock = dynamic(import('components/Stocks/Stock.js'), {
@@ -18,7 +17,8 @@ const Stock = dynamic(import('components/Stocks/Stock.js'), {
 const Index = () => {
   const router = useRouter();
   const  pid  = router.query
-  console.log('In URL', pid)
+  console.log('In URL', pid);
+
 
   return (
     <>
@@ -63,8 +63,8 @@ const Index = () => {
               <div className="px-6">
                 <div className="text-center mt-12"></div>
 
-                <Stock companyname={pid.companyname}></Stock>
-                <StockTable color="dark" />
+                <Stock companyname="AAPL"></Stock>
+                <StockTable color="dark"  />
                
               </div>
             </div>

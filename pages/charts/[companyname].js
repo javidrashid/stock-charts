@@ -2,22 +2,22 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { useRouter } from "next/router";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-import Navbar from "components/Navbars/AuthNavbar.js";
+import Navbar from "components/Navbars/IndexNavbar.js";
 
 import Link from "next/link";
-import StockTable from 'components/Stocks/StockTable';
+import StockTable from "components/Stocks/StockTable";
+import CompanyList from "components/Stocks/CompanyList";
 
-const Stock = dynamic(import('components/Stocks/Stock.js'), {
-  ssr: false
-})
-
+const Stock = dynamic(import("components/Stocks/Stock.js"), {
+  ssr: false,
+});
 
 const Index = () => {
   const router = useRouter();
-  const  pid  = router.query
-  console.log('In URL', pid)
+  const pid = router.query;
+  console.log("In URL", pid);
 
   return (
     <>
@@ -59,21 +59,18 @@ const Index = () => {
         <section className="relative py-16 bg-gray-300">
           <div className="container mx-auto px-4">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+              {/*<CompanyList /> */}
+
               <div className="px-6">
                 <div className="text-center mt-12"></div>
 
                 <Stock companyname={pid.companyname}></Stock>
-                <StockTable color="dark" />
-               
+                <StockTable companyname={pid.companyname} color="dark" />
               </div>
             </div>
           </div>
-
-         
         </section>
       </main>
-     
-    
     </>
   );
 };

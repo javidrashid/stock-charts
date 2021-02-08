@@ -4,17 +4,19 @@ import PropTypes from "prop-types";
 import {testdata} from '../Stocks/staticdata.js';
 // components
 console.log('hello123', testdata.Name);
-export default function StockTable({ color }) {
+export default function StockTable({ companyname, color }) {
     //const staticData = staticData
     const [companyData, setCompanyData] = useState({});
-    //const url ="https://www.alphavantage.co/query?function=OVERVIEW&symbol=AKAM&apikey=09OMDA7K4NR4UN0A";
-    const url = testdata
-    fetch(url).then((res) => {
-      res.json().then((data) => {
-        console.log("Hellod data", data['50DayMovingAverage']);
-        setCompanyData(data.Symbol)
-      });
-    });
+    const url =`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${companyname}&apikey=process.env.NEXT_PUBLIC_APIKEY`;
+    //const url = testdata
+    React.useEffect(() => {
+        fetch(url).then((res) => {
+            res.json().then((data) => {
+              console.log("Hellod data", data['50DayMovingAverage']);
+              setCompanyData(data)
+            });
+          });
+    }, [])
 
   return (
     <>
@@ -33,7 +35,7 @@ export default function StockTable({ color }) {
                   (color === "light" ? "text-gray-800" : "text-white")
                 }
               >
-                {testdata.Name}
+                {companyData.Name}
               </h3>
             </div>
           </div>
@@ -77,7 +79,7 @@ export default function StockTable({ color }) {
             <tbody>
              
               {
-                Object.entries(testdata).map(([key, val]) => (
+                Object.entries(companyData).map(([key, val]) => (
                 <tr>
                     <th  className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center">{key}</th>
                     <td className="w-half border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  p-4">
@@ -97,6 +99,7 @@ export default function StockTable({ color }) {
 
 StockTable.defaultProps = {
   color: "light",
+  companyname : "AAPL"
 };
 
 StockTable.propTypes = {
