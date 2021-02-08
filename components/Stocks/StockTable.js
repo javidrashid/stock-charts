@@ -1,9 +1,7 @@
 import React , {useState} from "react";
 import PropTypes from "prop-types";
 
-import {testdata} from '../Stocks/staticdata.js';
 // components
-console.log('hello123', testdata.Name);
 export default function StockTable({ companyname, color }) {
     //const staticData = staticData
     const [companyData, setCompanyData] = useState({});
